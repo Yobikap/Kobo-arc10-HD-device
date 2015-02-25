@@ -15,7 +15,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_BOOTLOADER_BOARD_NAME := macallan
 
-BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_CMDLINE := tegraid=35.1.2.0.0 mem=1942M@2048M memtype=0 vpr=96M@3997M tsec=4M@3993M otf_key=00000000000000000000000000000000 commchip_id=0 usb_port_owner_info=0 emc_max_dvfs=0 androidboot.cpuid=15C3E10400C00000012048180 androidboot.serialno=K110A39405616 androidboot.commchip_id=0 androidboot.modem=none video=tegrafb no_console_suspend=1 console=ttyS0,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=2656@0xf96ff000 tegra_fbmem=32931840@0xace23000 core_edp_mv=1170 core_edp_ma=4000 pmuboard=0x2000:0xce60:0x89:0x80:0xff displayboard=0x0667:0x03e8:0x01:0x42:0x06 display_panel=0 power_supply=Adapter audio_codec=rt5640 board_info=609:3e0:0:42:9 tegraboot=sdmmc odm_info=B04.24.20131112:0x03:0x03 gpt gpt_sector=30785535 modem_id=0 androidboot.mode=normal power-config=0x00 android.kerneltype=normal
 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
