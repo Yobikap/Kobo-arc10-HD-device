@@ -21,7 +21,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/kobo/macallan
+TARGET_KERNEL_SOURCE := kernel/kobo/Kobo-arc10-HD-kernel
 
 # Partition
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -36,5 +36,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 528424960 # 504M , CAC - mmcblk0p5
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/kobo/macallan/kernel
+
+TARGET_KERNEL_CONFIG := koboarc10hd_defconfig
 
 BOARD_HAS_NO_SELECT_BUTTON := true

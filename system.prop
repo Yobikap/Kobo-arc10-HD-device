@@ -1,11 +1,8 @@
 #
 # system.prop for macallan
 #
-ro.build.epad.project=TF501T
-ro.build.csc.version=US_TF501T_V11.4.1.29
-ro.opengles.version = 131072
-ro.radio.noril=true
+ro.secure=0
+ro.allow.mock.location=0
+ro.debuggable=1
+persist.sys.usb.config=mtp,adb
 persist.logtool.gps.loglv=0
-
-# don't preload OpenGL in Zygote, the Tegra drivers do not like it
-ro.zygote.disable_gl_preload=true
