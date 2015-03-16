@@ -24,7 +24,7 @@ BOARD_KERNEL_CMDLINE :=
 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x11000000 --tags_offset 0x10000100 --second_offset 0x10f00000
 
 # Try to build the kernel
 TARGET_KERNEL_SOURCE := kernel/kobo/Kobo-arc10-HD-kernel

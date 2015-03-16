@@ -3,6 +3,8 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/kobo/macallan/BoardConfigVendor.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/kobo/macallan/include
+
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := tegra
@@ -11,17 +13,29 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a15
 TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
+
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 TARGET_BOOTLOADER_BOARD_NAME := macallan
 
-BOARD_KERNEL_CMDLINE := tegraid=35.1.2.0.0 mem=1942M@2048M memtype=0 vpr=96M@3997M tsec=4M@3993M otf_key=00000000000000000000000000000000 commchip_id=0 usb_port_owner_info=0 emc_max_dvfs=0 androidboot.cpuid=15C3E10400C00000012048180 androidboot.serialno=K110A39405616 androidboot.commchip_id=0 androidboot.modem=none video=tegrafb no_console_suspend=1 console=ttyS0,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=2656@0xf96ff000 tegra_fbmem=32931840@0xace23000 core_edp_mv=1170 core_edp_ma=4000 pmuboard=0x2000:0xce60:0x89:0x80:0xff displayboard=0x0667:0x03e8:0x01:0x42:0x06 display_panel=0 power_supply=Adapter audio_codec=rt5640 board_info=609:3e0:0:42:9 tegraboot=sdmmc odm_info=B04.24.20131112:0x03:0x03 gpt gpt_sector=30785535 modem_id=0 androidboot.mode=normal power-config=0x00 android.kerneltype=normal
+BOARD_KERNEL_CMDLINE := 
+
+# BOARD_KERNEL_CMDLINE := tegraid=35.1.2.0.0 mem=1942M@2048M memtype=0 vpr=96M@3997M tsec=4M@3993M otf_key=00000000000000000000000000000000 commchip_id=0 usb_port_owner_info=0 emc_max_dvfs=0 androidboot.cpuid=15C3E10400C00000012048180 androidboot.serialno=K110A39405616 androidboot.commchip_id=0 androidboot.modem=none video=tegrafb no_console_suspend=1 console=ttyS0,115200n8 debug_uartport=lsport,3 usbcore.old_scheme_first=1 lp0_vec=2656@0xf96ff000 tegra_fbmem=32931840@0xace23000 core_edp_mv=1170 core_edp_ma=4000 pmuboard=0x2000:0xce60:0x89:0x80:0xff displayboard=0x0667:0x03e8:0x01:0x42:0x06 display_panel=0 power_supply=Adapter audio_codec=rt5640 board_info=609:3e0:0:42:9 tegraboot=sdmmc odm_info=B04.24.20131112:0x03:0x03 gpt gpt_sector=30785535 modem_id=0 androidboot.mode=normal power-config=0x00 android.kerneltype=normal
 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/kobo/macallan
+TARGET_KERNEL_SOURCE := kernel/kobo/Kobo-arc10-HD-kernel
+TARGET_KERNEL_CONFIG := koboarc10hd_defconfig
+
+# Video
+BOARD_EGL_CFG := device/kobo/macallan/egl.cfg
+USE_OPENGL_RENDERER := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
+BOARD_USE_SKIA_LCDTEXT := true
 
 # Partition
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -36,5 +50,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 528424960 # 504M , CAC - mmcblk0p5
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/kobo/macallan/kernel
+
+TARGET_KERNEL_CONFIG := koboarc10hd_defconfig
 
 BOARD_HAS_NO_SELECT_BUTTON := true
